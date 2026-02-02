@@ -28,4 +28,10 @@ pipeline {
             }
         }
     }
+    post {
+        emailext {
+        body: '''This email is regarding the failed build.
+Check console output of ${BUILD_NAME}''', subject: 'Build FAILED ${BUILD_NUMBER}', to: 'mandawala.net@GMAIL.COM'
+        }
+    }
 }
