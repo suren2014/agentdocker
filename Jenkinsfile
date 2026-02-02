@@ -1,10 +1,14 @@
 pipeline {
     agent { label "${LABEL_NAME}" }
+    environment {
+        IMAGE_NAME ="netli"
+        IMAGE_TAG ="${BUILD_NUMBER}"
+    }
 
     stages {
         stage('Code Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/suren2014/agentdocker.git'
+                git branch: 'main', url: 'https://github.com/suren2014/agentdocker.git', branch:"main"
             }
         }
 
