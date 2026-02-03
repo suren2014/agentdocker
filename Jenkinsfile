@@ -46,15 +46,7 @@ pipeline {
 
                     docker rm c1 || true
 
-                    docker run -d \
-
-                      -p 80:80 \
-
-                      --name c1 \
-
-                      --restart always \
-
-                      ${DOCKER_IMAGE}
+                    docker run -d --name c1 -p 80:80 --restart always ${DOCKER_IMAGE}
 
                 '''
 
